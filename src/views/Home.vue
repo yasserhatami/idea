@@ -24,7 +24,7 @@ export default {
   name: "HomeComp",
   components: {
     
-  },
+  }
 };
 </script>
 
