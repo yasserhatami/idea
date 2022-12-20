@@ -12,7 +12,7 @@
         dark:border-gray-600
       "
     >
-      <div class="mx-auto lg:container flex items-center h-9 px-0 md-px-0">
+      <div class="mx-auto lg:container  h-10 px-0 md-px-0">
         <toppage></toppage>
       </div>
       <hr class="bbb" />
