@@ -1,86 +1,101 @@
 <template>
   <div>
-    <label class="switch">
-      <input @click="change" type="checkbox" v-model="message"/>
-      <span class="slider round"></span>
+    <input
+      @click="change"
+      type="checkbox"
+      v-model="message"
+      class="checkbox cursor-pointer"
+      id="checkbox"
+    />
+    <label for="checkbox" class="label">
+      <font-awesome-icon :icon="['fas', 'sun']" />
+      <font-awesome-icon :icon="['fas', 'moon']" />
+      <div class="ball"></div>
     </label>
   </div>
 </template>
 
 <script>
 export default {
-    data(){
-        return{
-            message : ''
-        }
-    },
-    methods:{
-        change(){
-            console.log(this.message);
-            let aa = this.message
-            localStorage.setItem('dark',`${aa}`)
-            if(this.message === true){
-				document.documentElement.classList.remove("dark");
-            }else{
-                
-				document.documentElement.classList.add("dark");
-            }
-        }
+  data() {
+    return {
+      message: "",
+    };
+  },
+  beforeCreate() {
+    let theme = localStorage.getItem("theme");
+    console.log("salam", theme);
+    if (theme === 'light') {
+      document.documentElement.classList.remove("dark");
+      this.message=true
+    } else {
+      document.documentElement.classList.add("dark");
+      this.message=false
     }
+  },
+  methods: {
+    change() {
+      console.log(this.message);
+      if (this.message === true) {
+        localStorage.setItem("theme", "light");
+        document.documentElement.classList.remove("dark");
+        console.log('dark');
+      } else {
+        localStorage.setItem("theme", "dark");
+        document.documentElement.classList.add("dark");
+        
+        console.log('light');
+      }
+    },
+  },
 };
 </script>
 
 <style scoped>
-.switch {
-				position: relative;
-				display: inline-block;
-				width: 40px;
-				height: 24px;
-			}
+.checkbox {
+  opacity: 0;
+  position: absolute;
+}
 
-			.switch input {
-				opacity: 0;
-				width: 0;
-				height: 0;
-			}
+.label {
+  cursor: pointer;
+  width: 30px;
+  height: 15px;
+  background-color: #2c3333;
+  display: flex;
+  border-radius: 50px;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  transform: scale(1.5);
+}
 
-			.slider {
-				position: absolute;
-				cursor: pointer;
-				top: 0;
-				left: 0;
-				right: 0;
-				bottom: 0;
-				background-color: #ccc;
-				-webkit-transition: 0.4s;
-				transition: 0.4s;
-				border-radius: 34px;
-			}
+.ball {
+  width: 15px;
+  height: 13px;
+  background-color: white;
+  position: absolute;
+  top: 1px;
+  left: 1px;
+  border-radius: 50%;
+  transition: transform 0.2s linear;
+}
 
-			.slider:before {
-				position: absolute;
-				content: "";
-				height: 16px;
-				width: 16px;
-				left: 4px;
-				bottom: 4px;
-				background-color: white;
-				-webkit-transition: 0.4s;
-				transition: 0.4s;
-				border-radius: 50%;
-			}
+/*  target the elemenent after the label*/
+.checkbox:checked + .label .ball {
+  transform: translateX(13px);
+}
 
-			input:checked + .slider {
-				background-color: #2196f3;
-			}
+.fa-moon {
+  padding: 2px;
 
-			input:focus + .slider {
-				box-shadow: 0 0 1px #2196f3;
-			}
+  font-size: 12px;
+  color: #00d664;
+}
 
-			input:checked + .slider:before {
-				-webkit-transform: translateX(16px);
-				-ms-transform: translateX(16px);
-				transform: translateX(16px);
-			}
+.fa-sun {
+  font-size: 12px;
+  color: #00d664;
+  padding-left: 1px;
+}
 </style>

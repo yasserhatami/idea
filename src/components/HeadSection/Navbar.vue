@@ -3,7 +3,7 @@
     <nav
       class="
         bg-white
-        dark:bg-gray-900
+        dark:bg-darknav
         fixed
         w-full
         z-20
@@ -12,7 +12,7 @@
         dark:border-gray-600
       "
     >
-      <div class="mx-auto lg:container  h-10 px-0 md-px-0">
+      <div class="mx-auto lg:container z-10 h-10 px-0 md-px-0">
         <toppage></toppage>
       </div>
       <hr class="bbb" />
@@ -29,9 +29,13 @@
           mx-auto
         "
       >
-        <router-link class="text-xl text-darkblue font-bold" to="/">idea...</router-link>
+        <router-link
+          class="text-xl text-black dark:text-silver font-bold"
+          to="/"
+          >idea...</router-link
+        >
 
-        <div class="hidden lg:block lg:order-2 w-44">
+        <div class="hidden lg:block lg:order-2 w-44 z-0">
           <subscribe></subscribe>
         </div>
 
@@ -60,17 +64,12 @@
               pt-3
               mt-1
               rounded-lg
-              bg-white
               lg:flex-row
               lg:space-x-8
               lg:mt-0
               lg:text-sm
               lg:font-medium
               lg:border-0
-              lg:bg-white
-              dark:bg-gray-800
-              lg:dark:bg-gray-900
-              dark:border-gray-700
             "
           >
             <li>
@@ -85,7 +84,7 @@
                   bg-blue-700
                   rounded
                   lg:bg-transparent lg:text-blue-700 lg:p-0
-                  dark:text-green
+                  dark:text-silver
                 "
                 aria-current="page"
                 >Home</a
@@ -102,15 +101,8 @@
                   text-darkblue
                   rounded
                   hover:bg-gray-100
-                  lg:hover:bg-transparent
-                  lg:hover:text-blue-700
-                  lg:p-0
-                  lg:dark:hover:text-white
-                  dark:text-gray-400
-                  dark:hover:bg-gray-700
-                  dark:hover:text-white
-                  lg:dark:hover:bg-transparent
-                  dark:border-gray-700
+                  lg:hover:bg-transparent lg:hover:text-blue-700 lg:p-0
+                  dark:text-silver
                 "
                 >About</a
               >
@@ -130,11 +122,7 @@
                   lg:hover:text-blue-700
                   lg:p-0
                   lg:dark:hover:text-white
-                  dark:text-gray-400
-                  dark:hover:bg-gray-700
-                  dark:hover:text-white
-                  lg:dark:hover:bg-transparent
-                  dark:border-gray-700
+                  dark:text-silver
                 "
                 >Services</a
               >
@@ -154,11 +142,7 @@
                   lg:hover:text-blue-700
                   lg:p-0
                   lg:dark:hover:text-white
-                  dark:text-gray-400
-                  dark:hover:bg-gray-700
-                  dark:hover:text-white
-                  lg:dark:hover:bg-transparent
-                  dark:border-gray-700
+                  dark:text-silver
                 "
                 >Contact</a
               >

@@ -1,8 +1,8 @@
 <template>
-  <div class=" mr-1 relative z-0">
+  <div class=" mr-1 relative z-10">
     <span class="flag  rounded cursor-pointer">
       <img
-        class="w-7 h-7 "
+        class="w-6 h-6 "
         :src="
           defaultLang
             ? require('@/assets/flagSvg/IRI.svg')
@@ -14,33 +14,43 @@
 
     <div
       class="
-        hide
+      hide
         rounded
         absolute
         w-24
-        h-20
-        bg-green
+        bg-white
         dark:bg-darkblue
         right-1
         z-10
-        
+        w-28
+        py-3
+        px-2
+        flex
+        justify-center
+        items-center
+        shadow-2xl
       "
     >
-      <div
+     <div class="ali">
+      <div 
         @click="switchToEnglish"
-        class="English flex justify-between p-1 cursor-pointer"
+        class="English flex justify-between  cursor-pointer"
       >
         <span>English</span>
-        <img class="w-7" src="@/assets/flagSvg/USA.svg" alt="" />
+        <img class="w-6 ml-3" src="@/assets/flagSvg/USA.svg" alt="" />
       </div>
+
 
       <div
         @click="switchToPesrsian"
-        class="Persian flex justify-between pt-2 p-1 cursor-pointer"
+        class="Persian flex justify-between mt-3 cursor-pointer"
       >
         <span>Persian</span>
-        <img class="w-7" src="@/assets/flagSvg/IRI.svg" alt="" />
+        <img class="w-6 ml-3" src="@/assets/flagSvg/IRI.svg" alt="" />
       </div>
+     </div>
+
+
     </div>
   </div>
 </template>
