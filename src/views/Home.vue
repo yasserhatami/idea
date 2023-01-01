@@ -1,21 +1,6 @@
 <template>
   <div class="mt-44 ali container">
-    <h1 class="dark:text-green">This is a home page</h1>
-
-    {{ $t("message") }}
-
-    <div class="locale-changer">
-      <select v-model="$i18n.locale">
-        <option
-          v-for="locale in $i18n.availableLocales"
-          :key="`locale-${locale}`"
-          :value="locale"
-        >
-          {{ locale }}
-        </option>
-      </select>
-    </div>
-    <hr />
+    <router-link to="/authentication">authentication</router-link>
     
   </div>
 </template>
