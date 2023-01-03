@@ -12,7 +12,11 @@ module.exports = {
         black : "#2C3333",
         silver : "#E7F6F2",
         darknav : "#395B64",
-        sky : "#A5C9CA"
+        sky : "#A5C9CA",
+        logingray : "#F5F6FE",
+        loginbackground : "#FCFCFF",
+        loginbuttun : "#8083F2"
+        
       }
   },
   plugins: [],

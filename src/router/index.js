@@ -36,7 +36,7 @@ const routes = [
   {
     path: '/authentication', component: authentication,
     meta: {
-      layout: AppLayoutHedearLess
+      layout: AppLayoutDefault
     }
   },
 
