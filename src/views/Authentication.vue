@@ -1,5 +1,5 @@
 <template lang="">
-    <div class="mt-20">
+    <div class="mt-2 md:mt-6">
         <login></login>
     </div>
 </template>

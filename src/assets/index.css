@@ -1,3 +1,13 @@
 html.dark{
     background-color: #2C3333;
 }
+
+@font-face {
+    font-family: "NeueHaasUnica";
+    src: local("NeueHaasUnica"),
+     url(@/assets/fonts/NeueHaasUnica-Bold.woff) format("truetype");
+  }
+
+  html{
+    font-family: NeueHaasUnica;
+  }

@@ -9,7 +9,7 @@
       <div
         class="mx-auto lg:container px-2 md-px-0 flex flex-wrap items-center justify-between mx-auto"
       >
-        <router-link class="text-xl text-black dark:text-silver font-bold" to="/">idea...</router-link>
+        <router-link class="brand text-2xl text-black dark:text-silver font-bold" to="/">idea...</router-link>
 
         <div class="hidden lg:block lg:order-2 w-44 z-0">
           <subscribe></subscribe>
@@ -86,4 +86,5 @@ export default {
 .bbb {
   color: #d9f9e8;
 }
+
 </style>
