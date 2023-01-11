@@ -15,7 +15,8 @@ module.exports = {
         sky : "#A5C9CA",
         logingray : "#F5F6FE",
         loginbackground : "#FCFCFF",
-        loginbuttun : "#8083F2"
+        loginbuttun : "#8083F2",
+        danger : 'red'
         
       }
   },

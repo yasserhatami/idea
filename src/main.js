@@ -25,15 +25,9 @@ import '@/assets/index.css'
 
 import axios from 'axios'
 import VueAxios from 'vue-axios'
-axios.defaults.baseURL = 'https://www.lotfirahim.ir/api';
-axios.defaults.headers.post['Content-Type'] = 'application/json';
 
 const app = createApp(App).use(i18n)
 
-// app.use(axios)
-
-
-// app.config.globalProperties.axios=axios
 app.use(router)
 app.use(VueAxios,axios)
 app.component("font-awesome-icon", FontAwesomeIcon)

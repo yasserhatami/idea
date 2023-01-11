@@ -5,7 +5,7 @@
         <router-link to="/">back to home</router-link>
       </button>
       <div class="dark:bg-sky flex justify-between items-center  py-1 px-2 bg-silver rounded mt-5 ">
-        <switchlang class="mr-4"></switchlang>
+        <switchlang class="mr-5"></switchlang>
         <toggledark></toggledark>
       </div>
     </div>
