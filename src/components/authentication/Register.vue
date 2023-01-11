@@ -1,6 +1,8 @@
 <template lang="">
     <div>
-        div
+        RegisterComp
+        
+        <router-link class="text-danger" to="/authentication/login">yass</router-link>
     </div>
 </template>
 <script>

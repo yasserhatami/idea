@@ -16,7 +16,8 @@ module.exports = {
         logingray : "#F5F6FE",
         loginbackground : "#FCFCFF",
         loginbuttun : "#8083F2",
-        danger : 'red'
+        danger : 'red',
+        blue : 'blue'
         
       }
   },

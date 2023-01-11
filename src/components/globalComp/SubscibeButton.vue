@@ -1,5 +1,5 @@
 <template>
-<router-link to="/authentication" class="btn black ">Subscribe</router-link>
+<router-link to="/authentication/login" class="btn black " >Subscribe</router-link>
 </template>
 
 <script>
