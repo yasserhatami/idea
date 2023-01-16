@@ -15,10 +15,10 @@ import i18n from './i18n'
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 import {  faInstagram,faTwitter,faFacebookF } from "@fortawesome/free-brands-svg-icons";
-import { faMoon,faSun } from '@fortawesome/free-solid-svg-icons';
+import { faMoon,faSun,faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
 
 //for add Specific icons 
-library.add(faTwitter,faFacebookF,faInstagram,faMoon,faSun);
+library.add(faTwitter,faFacebookF,faInstagram,faMoon,faSun,faEye,faEyeSlash);
 
 import '@/assets/index.css'
 
