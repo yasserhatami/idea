@@ -94,10 +94,9 @@ export default {
         })
         .then((response) => {
           localStorage.setItem('token', `Bearer ${response.result.token}`)
-          console.log(response);
           if(response.statusCode == '200'){
             if(response.result.status == true){
-              this.$router.push('/')
+              this.$router.push('/dashboard/maindashboard')
             }else{
               
               this.notMatchWarn = true;

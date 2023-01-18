@@ -26,9 +26,12 @@ import '@/assets/index.css'
 import axios from 'axios'
 import VueAxios from 'vue-axios'
 
+import store  from './store/index.js';
+
 const app = createApp(App).use(i18n)
 
 app.use(router)
 app.use(VueAxios,axios)
+app.use(store)
 app.component("font-awesome-icon", FontAwesomeIcon)
 app.mount('#app')

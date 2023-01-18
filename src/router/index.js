@@ -8,6 +8,9 @@ import login from "@/components/authentication/LogInComp.vue"
 import register from "@/components/authentication/Register.vue"
 import AppLayoutDefault from '../layout/AppLayoutDefault.vue'
 import AppLayoutHedearLess from '../layout/AppLayoutHeaderLess.vue'
+import AppLayoutDashbord from '../layout/AppLayoutDashboard.vue'
+import DashboardHome from '../views/Dashboard.vue'
+import maindashboard from '../components/DashboardFolder/MainDashboard.vue'
 
 
 
@@ -51,6 +54,20 @@ const routes = [
       {
         path: 'register',
         component: register
+      }
+    ]
+  },
+  {
+    path: '/dashboard',
+    component: DashboardHome,
+    meta: {
+      layout: AppLayoutDashbord
+    },
+    children : [
+      {
+        path : 'maindashboard',
+        component : maindashboard,
+       
       }
     ]
   }

@@ -1,14 +1,33 @@
 <template>
   <div class="mt-44 ali container">
-    <router-link to="/authentication">authentication</router-link>
-    
+    <button @click="xxx">click</button>
   </div>
 </template>
 
 <script>
+import axios from "axios";
 export default {
   name: "HomeComp",
+  data() {
+    return {
+      token: localStorage.getItem("token"),
+    };
+  },
   components: {},
+  methods: {
+    xxx() {
+      axios.get(
+        `https://www.lotfirahim.ir/api/Administration/GetRolesNotAssignedToUser/${"sinuhe_1368"}`,
+        {
+          headers: {
+            accept: "text/plain",
+            Authorization: `Bearer ${this.token}`,
+            "Content-Type": "application/json",
+          },
+        }
+      ).the(res =>{console.log(res);});
+    },
+  },
 };
 </script>
 
@@ -16,8 +35,6 @@ export default {
 .ali {
   margin-bottom: 1500px;
 }
-
-
 
 .checkbox {
   opacity: 0;
@@ -59,7 +76,6 @@ export default {
 }
 
 .fa-sun {
-  
   margin-left: 5px;
   font-size: smaller;
   color: yellow;

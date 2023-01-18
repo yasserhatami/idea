@@ -24,7 +24,6 @@ export default {
   },
   beforeCreate() {
     let theme = localStorage.getItem("theme");
-    console.log("salam", theme);
     if (theme === 'light') {
       document.documentElement.classList.remove("dark");
       this.message=true
@@ -35,7 +34,6 @@ export default {
   },
   methods: {
     change() {
-      console.log(this.message);
       if (this.message === true) {
         localStorage.setItem("theme", "light");
         document.documentElement.classList.remove("dark");

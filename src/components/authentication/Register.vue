@@ -29,7 +29,7 @@
                                 <div  class="text-danger" v-if="v$.Email.email.$invalid">enter a invalid email</div>
                                 <!-- ConfirmEmail -->
                                 <label for="ConfirmEmail" class="block mb-1  font-medium">ConfirmEmail</label>
-                                <input  v-model="v$.ConfirmEmail.$model" type="email" id="Email" class="bg-logingray outline-0 pl-3 w-full h-12 rounded"  @blur="v$.ConfirmEmail.$touch,match" :class="{valueIsNotValid : !!v$.ConfirmEmail.$error}" autocomplete="on">
+                                <input  v-model="v$.ConfirmEmail.$model" type="email" id="ConfirmEmail" class="bg-logingray outline-0 pl-3 w-full h-12 rounded"  @blur="v$.ConfirmEmail.$touch,match" :class="{valueIsNotValid : !!v$.ConfirmEmail.$error}" autocomplete="on">
                                 <div class="text-danger" v-if="v$.ConfirmEmail.required.$invalid && v$.Email.$dirty">required</div>
                                 <div  class="text-danger"  v-else-if="v$.ConfirmEmail.sameAsEmail.$invalid">not match</div>
                                 <!-- Password -->
@@ -65,11 +65,11 @@
                                 <div class="text-danger" v-if="v$.Bio.required.$invalid && v$.Bio.$dirty">required</div>
                                 <!-- image -->
                                 <label for="image" class="block mb-1  font-medium">image</label>
-                                <input  id="image"  :class="{valueIsNotValid : !!v$.Bio.$error}"   class="  rounded" type="file">
+                                <input @change="load" accept="image/*" id="file" class=" rounded" type="file">
 
 
                                 
-
+                              <button type="submit" @click.prevent="registerUSer" >submit</button>
                               </div>
 
                             </form>
@@ -86,8 +86,8 @@
 </template>
 <script>
 import useVuelidate from "@vuelidate/core";
-import { required, minLength, email,sameAs  } from "@vuelidate/validators";
-// import auth from '@/services/auth.js'
+import { required, minLength, email, sameAs } from "@vuelidate/validators";
+import auth from "@/services/auth.js";
 export default {
   name: "RegisterComp",
   setup() {
@@ -96,16 +96,17 @@ export default {
 
   data() {
     return {
-      showpass : false,
-      showpass2 : false,
+      showpass: false,
+      showpass2: false,
       DisplayName: "",
       userName: "",
       Email: "",
-      ConfirmEmail : "",
-      Password : "",
-      confirmPassword : "",
-      PhoneNumber : "",
-      Bio : "",
+      ConfirmEmail: "",
+      Password: "",
+      confirmPassword: "",
+      PhoneNumber: "",
+      Bio: "",
+      image: "",
     };
   },
 
@@ -114,33 +115,73 @@ export default {
       DisplayName: { required },
       userName: { required, minLength: minLength(8) },
       Email: { required, email },
-      ConfirmEmail: { required, email,sameAsEmail: sameAs(this.Email), },
-      Password : {required , minLength : minLength(8)},
-      confirmPassword : {required , minLength : minLength(8),sameAsPassword: sameAs(this.Password)},
-      PhoneNumber : {required},
-      Bio: {required}
+      ConfirmEmail: { required, email, sameAsEmail: sameAs(this.Email) },
+      Password: { required, minLength: minLength(8) },
+      confirmPassword: {
+        required,
+        minLength: minLength(8),
+        sameAsPassword: sameAs(this.Password),
+      },
+      PhoneNumber: { required },
+      Bio: { required },
+      image: { required },
     };
   },
-  methods:{
-    changeEye: function() {
-       if(document.getElementById('Password').type == "text") {
-         document.getElementById('Password').type = "Password"
-         this.showpass = false
-       } else {
-        document.getElementById('Password').type = "text"
-        this.showpass = true
-       }
-     },
-     changeEye2: function() {
-       if(document.getElementById('confirmPassword').type == "text") {
-         document.getElementById('confirmPassword').type = "Password"
-         this.showpass = false
-       } else {
-        document.getElementById('confirmPassword').type = "text"
-        this.showpass = true
-       }
-     }
-  }
+  methods: {
+    changeEye: function () {
+      if (document.getElementById("Password").type == "text") {
+        document.getElementById("Password").type = "Password";
+        this.showpass = false;
+      } else {
+        document.getElementById("Password").type = "text";
+        this.showpass = true;
+      }
+    },
+    changeEye2: function () {
+      if (document.getElementById("confirmPassword").type == "text") {
+        document.getElementById("confirmPassword").type = "Password";
+        this.showpass = false;
+      } else {
+        document.getElementById("confirmPassword").type = "text";
+        this.showpass = true;
+      }
+    },
+    change(event) {
+      console.log(event.target.file);
+    },
+    load() {
+      if (document.querySelector("#file").value == "") {
+        return;
+      }
+      const file = document.querySelector("#file").files[0]
+      this.image = file;
+    },
+
+    registerUSer() {
+      var bodyFormData = new FormData();
+
+
+      const payload = {
+        phonNumber: this.PhoneNumber,
+        bio: this.Bio,
+        displayName: this.DisplayName,
+        userName: this.userName,
+        images: this.image,
+        confirmPassword: this.confirmPassword,
+        password: this.Password,
+        confirmEmail: this.ConfirmEmail,
+        email: this.Email,
+      };
+      for (const key in payload) {
+        bodyFormData.append(key, payload[key]);
+      }
+  
+      const res = auth.register(bodyFormData, {"Content-Type": "multipart/form-data", "accept": "text/plain" });
+      res.then(() => {
+        this.$router.push('/authentication/login')
+      });
+    },
+  },
 };
 </script>
 <style scoped>

@@ -5,7 +5,7 @@
 </template>
 <script>
 export default {
-    name:"AuthenticationCom"
+    name:"DashboardHome"
     
 }
 </script>
