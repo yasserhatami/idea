@@ -10,7 +10,6 @@
       </div>
     </div>
     <slot />
-    <div>footer</div>
   </div>
 </template>
   

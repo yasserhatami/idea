@@ -1,3 +1,27 @@
 {
-    "message": "سلامممممم !!"
+  "Authentication": {
+    "Login" : {
+      "tittle" : "برای ادامه،وارد شوید",
+      "Login" : "وارد شدن",
+      "userName" : "نام کاربری",
+      "password" : "کلمه عبور",
+      "haveAnAccunt"  : "ساخت حساب کاربری"
+    },
+    "register" : {
+      "Please Register" : " لطفا ثبت نام کنید",
+      "DisplayName" : "نام و نام خانوادگی",
+      "Username" : "نام کاربری",
+      "Email" : "ایمیل",
+      "ConfirmEmail" : "تایید ایمیل",
+      "Password" : "رمز عبور",
+      "confirmPassword" : "تایید رمز عبور",
+      "PhoneNumber" : "شماره تلفن",
+      "submit" : "ثبت نام",
+      "Do you have an account?click & Log In" : "حساب کاربری دارید؟"
+    },
+    "vulidate" : {
+      "required" : "این فیلد باید پر گردد",
+      "At least 8 characters" : "حداقل 8 کارکتر"
+    }
   }
+}

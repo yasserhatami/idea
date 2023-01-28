@@ -17,7 +17,9 @@ module.exports = {
         loginbackground : "#FCFCFF",
         loginbuttun : "#8083F2",
         danger : 'red',
-        blue : 'blue'
+        blue : 'blue',
+        footerBG : '#EDFCF4',
+        footerborder : "#CAF7DF"
         
       }
   },

@@ -1,3 +1,28 @@
 {
-  "message": "hello i18n !!"
+  "Authentication": {
+    "Login" : {
+      "tittle" : "Login to continue",
+      "Login" : "Login",
+      "userName" : "userName",
+      "password" : "password",
+      "haveAnAccunt" : "Don't have an account? Create one"
+    },
+    "register" : {
+      
+      "Please Register" : "Please Register",
+      "DisplayName" : "DisplayName",
+      "Username" : "Username",
+      "Email" : "Email",
+      "ConfirmEmail" : "ConfirmEmail",
+      "Password" : "Password",
+      "confirmPassword" : "confirmPassword",
+      "PhoneNumber" : "PhoneNumber",
+      "submit" : "submit",
+      "Do you have an account?click & Log In" : "Do you have an account?click & Log In"
+    },
+    "vulidate" : {
+      "required" : "required",
+      "At least 8 characters" : "At least 8 characters"
+    }
+  }
 }
