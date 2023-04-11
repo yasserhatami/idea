@@ -55,6 +55,7 @@
 import useVuelidate from "@vuelidate/core";
 import { required, minLength } from "@vuelidate/validators";
 import auth from "@/services/auth.js";
+import { mapActions } from 'vuex';
 export default {
   setup() {
     return { v$: useVuelidate() };
@@ -74,6 +75,7 @@ export default {
     };
   },
   methods: {
+    ...mapActions('auth',['setUser','setUserAuthenticated']),
     authorize() {
       if (this.v$.userName.$invalid) {
         this.v$.$touch()
@@ -90,9 +92,12 @@ export default {
             rememberMe: true,
           })
           .then((response) => {
+            this.setUser(response.result)
             localStorage.setItem("token", `Bearer ${response.result.token}`);
             if (response.statusCode == "200") {
               if (response.result.status == true) {
+                this. setUserAuthenticated(true)
+                console.log( 'authen is',this.$store.state.auth.isAuthenticated);
                 console.log(response);
                 this.$router.push("/dashboard/maindashboard");
               } else {

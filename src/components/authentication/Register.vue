@@ -59,7 +59,7 @@
                                 <div class="col-span-3">
                                   <!-- PhoneNumber -->
                                   <label for="PhoneNumber" class="block mb-1  font-medium">{{ $t('Authentication.register.PhoneNumber') }}</label>
-                                  <input  id="PhoneNumber"  :class="{valueIsNotValid : !!v$.PhoneNumber.$error}" @blur="v$.PhoneNumber.$touch" v-model="v$.PhoneNumber.$model" class="bg-logingray outline-0 pl-3 w-full h-12 rounded" type="number" autocomplete="on">
+                                  <input  id="PhoneNumber"  :class="{valueIsNotValid : !!v$.PhoneNumber.$error}" @blur="v$.PhoneNumber.$touch" v-model="PhoneNumber" class="bg-logingray outline-0 pl-3 w-full h-12 rounded" type="text" autocomplete="on">
                                   <div class="text-danger" v-if="v$.PhoneNumber.required.$invalid && v$.PhoneNumber.$dirty">{{ $t('Authentication.vulidate.required') }}</div>
                                   <!-- Bio -->
                                   <label for="Bio" class="block mb-1  font-medium">Bio</label>
@@ -162,7 +162,6 @@ export default {
       if (this.v$.$invalid) {
         this.v$.$touch();
       }
-      console.log('kooon');
       let bodyFormData = new FormData();
       const payload = {
         phonNumber: this.PhoneNumber,
@@ -178,7 +177,7 @@ export default {
       for (const key in payload) {
         bodyFormData.append(key, payload[key]);
       }
-
+      console.log(this.PhoneNumber);
       const res = auth.register(bodyFormData, {
         "Content-Type": "multipart/form-data",
         accept: "text/plain",
@@ -216,6 +215,4 @@ input::-webkit-inner-spin-button {
     -webkit-appearance: none;
 }
 
-input[type=number] {
-}
 </style>

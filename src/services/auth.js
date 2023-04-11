@@ -1,19 +1,27 @@
-import axios from "axios"
-import headers from "./config/headers"
+
+import Api from "@/utils/axios.js";
 
 const auth = {
     login: async (data) => {
-        return await axios.post('/Authentication/login', data, headers)
-          .then(res => {
+        return await Api({
+            url: '/Authentication/login',
+            method: 'post',
+            data
+        }).then(res => {
             return res.data
         })
     },
-    register : async (data, customHeader) => {
-        return await axios.post('/Authentication/register',data,{headers: customHeader})
-        .then(res => {
+    register: async (data, headers) => {
+        return await Api({
+            url: '/Authentication/register',
+            method: 'post',
+            data,
+            headers
+        }).then(res => {
             return res.data
         })
-    },
+    }
+
 }
 
 export default auth

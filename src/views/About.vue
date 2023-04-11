@@ -6,8 +6,7 @@
   
   <script>
   export default {
-      name: "AboutComp"
-  
+      name: "AboutComp",
   }
   </script>
   
