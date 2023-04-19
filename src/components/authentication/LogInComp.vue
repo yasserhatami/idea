@@ -92,13 +92,14 @@ export default {
             rememberMe: true,
           })
           .then((response) => {
+            console.log(response.result);
             this.setUser(response.result)
+            console.log(response.result.roles);
             localStorage.setItem("token", `Bearer ${response.result.token}`);
             if (response.statusCode == "200") {
               if (response.result.status == true) {
                 this. setUserAuthenticated(true)
-                console.log( 'authen is',this.$store.state.auth.isAuthenticated);
-                console.log(response);
+                
                 this.$router.push("/dashboard/maindashboard");
               } else {
                 this.notMatchWarn = true;

@@ -1,5 +1,5 @@
 import axios from "axios"
-const baseUrl = 'https://www.lotfirahim.ir/api/sss';
+const baseUrl = 'https://www.lotfirahim.ir/api/';
 
 const token = localStorage.getItem('token')
 

@@ -72,23 +72,17 @@ const routes = [
     component: DashboardHome,
     meta: {
       layout: AppLayoutDashbord,
-      roles: ['admin', 'programer', 'owner']
     },
     children: [
       {
-
+        
         name: 'maindashboard',
         path: 'maindashboard',
         component: maindashboard,
         beforeEnter: (to, from, next) => {
           if (store.state.auth.isAuthenticated) {
-            let roles = Object.values(store.state.auth.user.roles);
+            next()
 
-            if (roles.includes('Programer')) {
-              next()
-            } else {
-              next("/")
-            }
           } else {
             next("/authentication/login")
           }

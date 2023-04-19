@@ -1,20 +1,14 @@
 import Api from "@/utils/axios";
 
-// const setting = {
-//     getSidebarMenuItems: async (data) => {
-//         return await Api({
-//             url: '/menu',
-//         }).then(res => {
-//             return res.data
-//         })
-//     },
-// }
-
-export function getSidebarMenuItems() {
-    Api({url: '/menu'}).then(res => {
-        console.log('res', res)
-    })
+const setting = {
+    getSidebarMenuItems: async () => {
+        return await Api({
+            url: '/Administration/GetAllMenues',
+        }).then(res => {
+            return res.data
+        })
+    },
 }
 
-// export function  ...
-// export default setting
+export default setting
+
